@@ -1,0 +1,25 @@
+{
+  "name": "abq_film_location_reservation_system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "map_script.js",
+  "dependencies": {
+    "es6-promise": "^4.2.8",
+    "express": "^4.17.1",
+    "isomorphic-fetch": "^2.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamRCrooks/ABQ_Film_Location_Reservation_System.git"
+  },
+  "author": "Sam Crooks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SamRCrooks/ABQ_Film_Location_Reservation_System/issues"
+  },
+  "homepage": "https://github.com/SamRCrooks/ABQ_Film_Location_Reservation_System#readme"
+}
