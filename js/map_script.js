@@ -1,4 +1,4 @@
-console.log(coordinates);
+console.log(coordinates[0][0]);
 
 var map = L.map('map').setView([35.084385, -106.650421], 11.1);
 		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
