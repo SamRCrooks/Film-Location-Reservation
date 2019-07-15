@@ -1,4 +1,4 @@
-var addresses = ['Naral Office',
+var sites = ['Naral Office',
 'El Madrid Bar ' ,
 'Hotel Andaluz' ,
 'Albuquerque Convention Center' ,
