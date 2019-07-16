@@ -25,15 +25,33 @@ var redIcon = L.icon({
 
 var markers = [];
 
-//var testMarker = L.marker([35.047711, -106.605247], {icon: greenIcon}).addTo(map)
-//    .bindPopup('BREAKING BAD SHOT HERE')
-//    .openPopup();
+var testMarker = L.marker([35.047711, -106.605247], {icon: greenIcon}).addTo(map)
+    .bindPopup('BREAKING BAD SHOT HERE')
+    .openPopup();
 
 for (i = 0; i <coordinates.length; i++){
-	console.log(coordinates[i][0], coordinates[i][1]);
-	L.marker([coordinates[i][0], coordinates[i][1]], {icon: greenIcon}).addTo(map)
-    .bindPopup(sites[i])
-    .openPopup();
+	//console.log(coordinates[i][0], coordinates[i][1]);
+	markers.push(L.marker([coordinates[i][0], coordinates[i][1]], {icon: greenIcon}).addTo(map)
+    .bindPopup("<h2> Site: "+ sites[i]+ "</h2>"+` <button class='button' id= 'button${i}'>RESERVE</button>`)
+    .openPopup());
+}
+
+var buttons = document.getElementsByClassName("button");
+
+console.log(buttons);
+
+for(i = 0; i < buttons.length; i++){
+	buttons[i].addEventListener("click", 
+		function reserve() {
+			console.log(this.id);
+
+		});
+}
+
+
+function reserve2(){
+	console.log("cherires");
+	console.log("Reserve"+this.id);
 }
 //L.geoJson(data.features, {
 //	onEachFeature: basementDweller
