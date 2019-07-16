@@ -32,7 +32,7 @@ var testMarker = L.marker([35.047711, -106.605247], {icon: greenIcon}).addTo(map
 for (i = 0; i <coordinates.length; i++){
 	//console.log(coordinates[i][0], coordinates[i][1]);
 	markers.push(L.marker([coordinates[i][0], coordinates[i][1]], {icon: greenIcon}).addTo(map)
-    .bindPopup("<h2> Site: "+ sites[i]+ "</h2>"+` <button class='button' id= 'button${i}'>RESERVE</button>`)
+    .bindPopup("<h2> Site: "+ sites[i]+"</h2>"+` <button class='button' id= 'button${i}'>RESERVE</button>`)
     .openPopup());
 }
 
