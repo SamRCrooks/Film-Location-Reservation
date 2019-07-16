@@ -30,10 +30,24 @@ var testMarker = L.marker([35.047711, -106.605247], {icon: greenIcon}).addTo(map
 for (i = 0; i <coordinates.length; i++){
 	//console.log(coordinates[i][0], coordinates[i][1]);
 	markers.push(L.marker([coordinates[i][0], coordinates[i][1]], {icon: greenIcon}).addTo(map)
-    .bindPopup("<h2> Site: "+ sites[i]+"</h2>"+` <button class='button' id= 'button${i}'>RESERVE</button>`)
+    /*
+    note the addition of the onclick attribute to this button!
+    The keyword 'this' lets you pass on a reference to the current
+    HTML element
+    */
+    .bindPopup("<h2> Site: "+ sites[i]+"</h2>"+` <button class='button' id= 'button${i}' onclick=reserve(this)>RESERVE</button>`)
     .openPopup());
 }
 
+function reserve(e) {
+    /*
+    takes in reference to an HTML element, logs the value of the id attribute
+    of that element to the console
+    */
+    console.log(e.id);
+}
+
+/* didn't need any of this, but I kept it in just in case you wanted it:
 var buttons = document.getElementsByClassName("button");
 
 console.log(buttons);
@@ -54,3 +68,4 @@ function reserve2(){
 //L.geoJson(data.features, {
 //	onEachFeature: basementDweller
 //}).addTo(map);
+*/
