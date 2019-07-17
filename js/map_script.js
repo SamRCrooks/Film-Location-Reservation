@@ -29,13 +29,13 @@ var testMarker = L.marker([35.047711, -106.605247], {icon: greenIcon}).addTo(map
 
 for (i = 0; i <coordinates.length; i++){
 	//console.log(coordinates[i][0], coordinates[i][1]);
-	markers.push(L.marker([coordinates[i][0], coordinates[i][1]], {icon: greenIcon}).addTo(map)
-    /*
+     /*
     note the addition of the onclick attribute to this button!
     The keyword 'this' lets you pass on a reference to the current
     HTML element
     */
-    .bindPopup("<h2> Site: "+ sites[i]+"</h2>"+` <button class='button' id= "${i}" onclick=reserve(this)> ${text} </button>`)
+	markers.push(L.marker([coordinates[i][0], coordinates[i][1]], {icon: greenIcon}).addTo(map)
+    .bindPopup("<h2> Site: "+ sites[i]+"</h2>"+` <button class='button' id= "${i}" onclick=reserve(this)> RESERVE </button>`)
     .openPopup());
 
 }
@@ -48,6 +48,10 @@ function reserve(e) {
     buttonNum = parseInt(e.id);
     console.log("Button number: "+buttonNum);
     markers[buttonNum].setIcon(redIcon);
-    document.getElementById(buttonNum).innerText = 'RESERVED';
+    console.log(markers[buttonNum])
+    console.log(L.marker([coordinates[buttonNum][0], coordinates[buttonNum][1]], {icon: redIcon}).addTo(map)
+    .bindPopup("<h2> Site: "+ sites[buttonNum]+"</h2>"+` <button class='buttonReserved'  id= "${buttonNum}" onclick=reserve(this)> RESERVED </button>`)
+    .openPopup());
+    //document.getElementById(buttonNum).innerText = 'RESERVED';
     document.getElementById(buttonNum).style.background='#cf252b';;
 }
