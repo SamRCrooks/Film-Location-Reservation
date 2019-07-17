@@ -35,8 +35,9 @@ for (i = 0; i <coordinates.length; i++){
     The keyword 'this' lets you pass on a reference to the current
     HTML element
     */
-    .bindPopup("<h2> Site: "+ sites[i]+"</h2>"+` <button class='button' id= 'button${i}' onclick=reserve(this)>RESERVE</button>`)
+    .bindPopup("<h2> Site: "+ sites[i]+"</h2>"+` <button class='button' id= "${i}" onclick=reserve(this)> ${text} </button>`)
     .openPopup());
+
 }
 
 function reserve(e) {
@@ -44,28 +45,9 @@ function reserve(e) {
     takes in reference to an HTML element, logs the value of the id attribute
     of that element to the console
     */
-    console.log(e.id);
+    buttonNum = parseInt(e.id);
+    console.log("Button number: "+buttonNum);
+    markers[buttonNum].setIcon(redIcon);
+    document.getElementById(buttonNum).innerText = 'RESERVED';
+    document.getElementById(buttonNum).style.background='#cf252b';;
 }
-
-/* didn't need any of this, but I kept it in just in case you wanted it:
-var buttons = document.getElementsByClassName("button");
-
-console.log(buttons);
-
-for(i = 0; i < buttons.length; i++){
-	buttons[i].addEventListener("click", 
-		function reserve() {
-			console.log(this.id);
-
-		});
-}
-
-
-function reserve2(){
-	console.log("cherires");
-	console.log("Reserve"+this.id);
-}
-//L.geoJson(data.features, {
-//	onEachFeature: basementDweller
-//}).addTo(map);
-*/
