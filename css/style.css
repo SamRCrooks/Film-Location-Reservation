@@ -1,3 +1,6 @@
+body{
+  margin: 0;
+}
 #map{
 			/*position: static;
 			top:200px;
@@ -6,17 +9,16 @@
 			left:0;*/
       height:1000px;
 		}
-iframe{
-  display:block;
-  margin: 0 auto;
 
+#instructions{
+  text-align: center;
+  background-color: #adf3af;
 }
-
 p{
   font-family: Arial, Helvetica, sans-serif;
 }
 .button {
-  background-color: #4CAF50; /* Green */
+  background-color: #1f801f; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -52,20 +54,31 @@ form{
   text-align:center;
 }
 
-/* Add a black background color to the top navigation */
 .topnav {
-  background-color: #333;
+  background-color: #000000;
   overflow: hidden;
 }
 
-/* Style the links inside the navigation bar */
-.topnav a {
+
+.floatRight{
   float: right;
+  display: inline-block;
   color: #FFFFFF;
-  text-align: center;
+  text-align: right;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* Style the links inside the navigation bar */
+.active {
+  float: left;
+  display: inline-block;
+  color: #FFFFFF;
+  text-align: right;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 25px;
   font-family: Arial, Helvetica, sans-serif;
 
 }

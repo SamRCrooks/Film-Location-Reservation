@@ -4,24 +4,76 @@
 	<title></title>
 	<link href="css/style.css" rel="stylesheet" type="text/css">
 
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<div class="video-container">
-<div class="topnav">
-  <a class="active" href="#home">RESERVE A LOCATION</a>
+<div class="container">
+
+<div class="row">
+  <div class="col-sm-12"><div class="topnav">
+  <a class="active" href="#home">ABQ FILM SITE RESERVATION ™</a>
+  <a class="floatRight" href="#contact">CONTACT</a>
+  <a class="floatRight" href="#home">CREATION OF APP</a>
+  <a class="floatRight" href="#reserve">RESERVE</a>
+</div></div>
 </div>
-	<nav class="site-header">
-                <div class="level-left">
-                    <div class="level-item logo">
-                        <a href=""> <!-- logo link -->
-                        </a>
-                    </div>
-                </div>
-            </nav>
-                        <video width="100%" autoplay="" preload="" loop="" muted="" playsinline="" class="opening-video">
-                                <source src="background.mp4" type="video/webm">
-                            </video>
-                        </div>
-<iframe src="map.html" width="1500" height="800" align="middle" allowfullscreen></iframe>
+<div class="row">
+  <div class="col-sm-12"><div class="video-container">
+  <video id= "videoarea" width="100%" autoplay="" preload="" loop="" muted="" playsinline="" class="opening-video"> <source src="background.mp4" type="video/webm"> </video>
+</div></div>
+  
+</div>
+
+<div class="row">
+  <div class="col-sm-12"><h1> View and reserve available film sites in ABQ: </h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-8"><iframe src="map.html" width="100%" height="400" align="left" allowfullscreen></iframe></div>
+  <div class="col-sm-4">
+    <div id="instructions">
+      <img src="icons/camera_icon_black.png" alt="camera" height="120">
+      <h4> 1) Select a Location</h4>
+      <h5 class= "description"> # of film sites available </h5>
+      <img src="icons/calendar.png" alt="camera" height="120">
+      <h4 class="step"> 2) Choose Reservation Dates </h4>
+      <h5 class= "description"> Specify the start and end date of your reservation at this location. The cost to reserve a site is $50/day. </h5>
+      <img src="icons/cards.png" alt="camera" height="90">
+      <h4 class="step"> 3) Reserve & Pay </h4>
+      <h5 class= "description"> Payment methods accepted:</h5>
+      <img src="icons/methods.png" alt="camera" height="70">
+      <img src="icons/btc.png" alt="camera" height="70">
+    </div> 
+  </div>
+</div>
+
+
+<br>
+<div class="row">
+  <div class="col-sm-12"><h3> Development Process - Created by Sam Crooks</h3></div>
+</div>
+<div class="row">
+  <div class="col-sm-6">COLUNM 1</div>
+  <div class="col-sm-6">COLUNM2</div>
+</div>
+
+
+
+
+
+
+  
+
+
+</div>
 </body>
 </html>
