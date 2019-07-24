@@ -22,7 +22,7 @@
   <div class="col-sm-12"><div class="topnav">
   <a class="active" href="#home">ABQ FILM SITE RESERVATION™</a>
   <a class="floatRight" href="mailto:samrcrooks@gmail.com">CONTACT</a>
-  <a class="floatRight" href="#home">DEVELOPMENT PROCESS</a>
+  <a class="floatRight" href="#development">DEVELOPMENT PROCESS</a>
   <a class="floatRight" href="#reserve">RESERVE</a>
 </div></div>
 </div>
@@ -33,8 +33,8 @@
   
 </div>
 
-<div class="row">
-  <div class="col-sm-12"><h1> View and reserve available film sites in ABQ: </h1>
+<div class="row" >
+  <div class="col-sm-12" id="reserve"><h1> VIEW AND RESERVE AVAILABLE FILM SITES IN ABQ: </h1>
 </div>
 
 <div class="row">
@@ -42,14 +42,14 @@
   <div class="col-sm-4" width= "100%">
     <div id="instructions">
       <img src="icons/camera_icon_black.png" alt="camera" height="120px">
-      <h4> 1) Select a Location</h4>
-      <h5 class= "description"> # of film sites available </h5>
+      <p class="step"> 1) Select a Location</p>
+      <p class= "description"> 406 film sites in ABQ </p> <br>
       <img src="icons/calendar.png" alt="camera" height="120px">
-      <h4 class="step"> 2) Choose Reservation Dates </h4>
-      <h5 class= "description"> Specify the start and end date of your reservation at this location. The cost to reserve a site is $50/day. </h5>
-      <img src="icons/cards.png" alt="camera" height="90px">
-      <h4 class="step"> 3) Reserve & Pay </h4>
-      <h5 class= "description"> Payment methods accepted:</h5>
+      <p class="step"> 2) Choose Reservation Dates </p>
+      <p class= "description"> Specify the start and end date of your reservation at this location. The cost to reserve a site is $50/day. </p> <br>
+      <img src="icons/cards.png" alt="camera" height="90px"> <br> <br>
+      <p class="step"> 3) Reserve & Pay </p>
+      <p class= "description"> Payment methods accepted:</p>
       <img src="icons/methods.png" alt="camera" height="50px">
       <img src="icons/btc.png" alt="camera" height="27px">
     </div> 
@@ -59,12 +59,12 @@
 
 <br>
 <div class="row">
-  <div class="col-sm-12"><h3> Development Process - Created by Sam Crooks </h3></div>
+  <div class="col-sm-12" id="development"><h3 style="font-size:35px"> Development Process - Project created by Sam Crooks </h3></div>
 </div>
 <div class="row">
-  <div class="col-sm-6"> <b>Motivation: </b>
+  <div class="col-sm-6"> <b>Motivation: </b> <br> <p class="devProcessText">
     With news last year of Netflix buying Albuquerque studios and more recently NBC Universal announcing to build its own new studio complex this year, there is no question that the film industry is booming in New Mexico. Film shoots often require numerous locations, and the New Mexico film office’s website contains a database of over 8,000 available locations for production companies and independent filmmakers to reserve. However, the current system is inefficient because those who want to reserve locations must contact the owner of the location of interest directly. Furthermore, there is no way to quickly determine whether or not a site has already been reserved by someone else at a specified time. To address these problems, I developed an interactive map-based reservation web app for film sites in Albuquerque. Below details the process in developing the app. 
-
+    </p>
 </div>
   <div class="col-sm-6"> <b>Tools Used:</b> <br>
 
@@ -80,12 +80,11 @@
 </div>
 <div class="row">
   <div class="col-sm-7"><b>1. Data Extraction and Processing </b> <br>
-
+<p class="devProcessText">
 Location data from Albuquerque’s open data website was used [2]. It contains a dataset of movie locations for 1,000 productions shot (406 unique locations) in non-residential locations within the city of Albuquerque that required a film permit. The data is stored as a JSON file (JavaScript Object Notation).
 Example of location attributes within the JSON file:
-<br>
-<code>
-
+</p>
+<pre>
 “attributes": {
     "OBJECTID": 4599,
     "Title": "Breaking Bad",
@@ -107,32 +106,35 @@ attributes": {
     "ShootDate": 1222992000000,
     "OriginalDetails": "Philips Building - 9201 Pan American Fwy."
    }
- </code> <br>
-The only necessary elements that I need from this dataset are the site names and their corresponding latitude and longitude coordinates so that they can be plotted on a map. Unfortunately, this dataset doesn’t include latitude and longitude coordinates; however, it does have addresses which can be converted to coordinates later on. In data_conversion.js, I extracted the site names and addresses of each location by creating a for loop which iterates through the location attributes and saves the site names to a list called sites and saves the addresses to list called addresses. The addresses were then converted to a list of coordinates using the MapQuest geocoding tool [3]. Finally, the cleansed address and coordinate data was saved as lists into a new file called data.js. In the future, it may be wise to store the data as a JavaScript object instead of lists because I may need data attributes beyond site names and coordinates, but this is suitable for my purposes.
-<br>
+ </pre>
+ <br>
+ <p class="devProcessText">
+The only necessary elements from this dataset are the site names and their corresponding latitude and longitude coordinates so that they can be plotted on a map. Unfortunately, this dataset doesn’t include latitude and longitude coordinates; however, it does have addresses which can be converted to coordinates later on. In data_conversion.js, I extracted the site names and addresses of each location by creating a for loop which iterates through the location attributes and saves the site names to a list called sites and saves the addresses to list called addresses. The addresses were then converted to a list of coordinates using the MapQuest geocoding tool [3]. Finally, the cleansed address and coordinate data was saved as lists into a new file called data.js. 
 Processed data:
-  <br>
-  <code>
-    var sites = ['Naral Office','El Madrid Bar ', I-25 Studios' ... ]; <br>
-    var coordinates = [[35.0860946, -106.650725194778], [35.1009602, -106.6460408], [35.0841157, -106.6480531] ... ];
-  </code>
-
+</p>
+  <pre>
+    var sites = ['Naral Office','El Madrid Bar ', I-25 Studios' ... ];
+    var coordinates = [[35.0860946, -106.650725194778], [35.1009602, -106.6460408],
+                      [35.0841157, -106.6480531] ... ];
+  </pre>
+  <p class="devProcessText">
+In the future, it may be wise to store the data as a JavaScript object instead of lists because I may need data attributes beyond site names and coordinates, but this is suitable for my purposes. </p>
 </div>
   <div class="col-sm-5"><b>2. Plotting Locations on a Map</b> <br>
-      <li>A map was created using Leaflet, an open-source JavaScript library for interactive maps [4]. </li>
-       <li> Downloaded a movie camera icon PNG. Created red and green versions. Green indicates a location is vacant. Red indicates reserved. </li>
-       <li> A for loop iterates through the coordinates and site names. A new map marker is created at each coordinate and the corresponding site name is bound each marker’s pop-up. </li>
-       <li> When a marker is clicked on, the pop-up becomes visible. </li>
+      <ul>A map was created using Leaflet, an open-source JavaScript library for interactive maps [4]. </ul>
+       <ul> Downloaded a movie camera icon PNG. Created red and green versions. Green indicates a location is vacant. Red indicates reserved. </ul>
+       <ul> A for loop iterates through the coordinates and site names. A new map marker is created at each coordinate and the corresponding site name is bound each marker’s pop-up. </ul>
+       <ul> When a marker is clicked on, the pop-up becomes visible. </ul>
   <br>  <br>
     <b>3. Site Reservation Functionality </b> <br>
-     <li> Created a green reservation button for each pop-up. </li>
-     <li>When the reservation button is clicked, a button action listener is triggered which changes the location’s icon from green to red.</li>
-     <li>Added a calendar widget in each pop up so that the user can select the start and end dates of their reservation. </li>
+     <ul> Created a green reservation button for each pop-up. </ul>
+     <ul>When the reservation button is clicked, a button action listener is triggered which changes the location’s icon from green to red.</ul>
+     <ul>Added a calendar widget in each pop up so that the user can select the start and end dates of their reservation. </ul>
 
      <br> <br>
      <b>4. Payment </b>  
-   <li>A paypal button is prompted after a location is reserved.</li>
-   <li>In a final product, the cost would be calculated based on the location and reservation duration. </li>
+   <ul>A paypal button is prompted after a location is reserved.</ul>
+   <ul>In a final product, the cost would be calculated based on the location and reservation duration. </ul>
 </div>
 </div>
 <div class="row">
@@ -153,34 +155,28 @@ Processed data:
 </div>
 </div>
 <div class="row">
-  <div class="col-sm-6"><br><b>Future Work</b>
-    <li>Include all locations from the nm film office site, not just locations in ABQ. Currently, 406 locations are being plotted.</li>
-    <li>Use node to retrieve and display the data from CABQ live so that new locations that are added will be updated.
-</li>
-    <li>Add contact info for each site owner, in case a potential client has questions.
+  <div class="col-sm-6"><b>Future Work</b>
+    <ul>Include all locations from the nm film office site, not just locations in ABQ. Currently, 406 locations are being plotted.</ul>
+    <ul>Use node to retrieve and display the data from CABQ live so that new locations that are added will be updated.
+</ul>
+    <ul>Add contact info for each site owner, in case a potential client has questions.
 Implement blockchain technology to make the reservation system decentralized.
-</li>
-    <li>A reservation system like the one developed in this project could be applied to other types of businesses, not just film, such as restaurant reservation.
-</li></div>
-  <div class="col-sm-6">COLUNM2</div>
-</div>
+</ul>
+    <ul>A reservation system like the one developed in this project could be applied to other types of businesses, not just film, such as restaurant reservation.
+</ul></div>
 <div class="row">
-  <div class="col-sm-6">COLUNM 1</div>
-  <div class="col-sm-6">COLUNM2</div>
+  <div class="col-sm-6"></div>
+  <div class="col-sm-6"></div>
 </div>
-<div class="row">
-  <div class="col-sm-6">COLUNM 1</div>
-  <div class="col-sm-6">COLUNM2</div>
-</div>
-</div>
-
+<br>
+<br>
 <footer>
 
   <p>© Created by Captain Sam 🚢  ©</p>
   <p>With mentoring from Emperor David 👑 </p>
   <p>Contact me: 
     <a href="mailto:samrcrooks@gmail.com">
-  samrcrooks@gmail.com</a>.</p>
+  samrcrooks@gmail.com</a></p>
 </footer>
 </body>
 </html>
