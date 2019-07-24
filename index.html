@@ -67,17 +67,18 @@
 
 </div>
   <div class="col-sm-6"> <b>Tools Used:</b> <br>
-  <img src="tools_logos/javascript.png" alt="tool" height="100">
-  <img src="tools_logos/html.png" alt="tool" height="100">
-  <img src="tools_logos/css.png" alt="tool" height="100">
-  <img src="tools_logos/mapquest.png" alt="tool" height="50">
-  <img src="tools_logos/leaflet.png" alt="tool" height="200">
-  <img src="tools_logos/git.jpg" alt="tool" height="100">
-  <img src="tools_logos/bootstrap.png" alt="tool" height="100">
+  <img src="tools_logos/javascript.png" alt="tool" height="70">
+  <img src="tools_logos/html.png" alt="tool" height="70">
+  <img src="tools_logos/css.png" alt="tool" height="70">
+  <img src="tools_logos/mapquest.png" alt="tool" height="40">
+  <img src="tools_logos/leaflet.png" alt="tool" height="150">
+  <img src="tools_logos/git.jpg" alt="tool" height="80">
+  <img src="tools_logos/bootstrap.png" alt="tool" height="80">
+  <img src="tools_logos/sublime.png" alt="tool" height="50">
 </div>
 </div>
 <div class="row">
-  <div class="col-sm-6"><b>1. Data Extraction and Processing </b> <br>
+  <div class="col-sm-7"><b>1. Data Extraction and Processing </b> <br>
 
 Location data from Albuquerque’s open data website was used [2]. It contains a dataset of movie locations for 1,000 productions shot (406 unique locations) in non-residential locations within the city of Albuquerque that required a film permit. The data is stored as a JSON file (JavaScript Object Notation).
 Example of location attributes within the JSON file:
@@ -105,22 +106,28 @@ attributes": {
     "ShootDate": 1222992000000,
     "OriginalDetails": "Philips Building - 9201 Pan American Fwy."
    }
-</code>
+ </code>
+The only necessary elements that I need from this dataset are the site names and their corresponding latitude and longitude coordinates so that they can be plotted on a map. Unfortunately, this dataset doesn’t include latitude and longitude coordinates; however, it does have addresses which can be converted to coordinates later on. In data_conversion.js, I extracted the site names and addresses of each location by creating a for loop which iterates through the location attributes and saves the site names to a list called sites and saves the addresses to list called addresses. The addresses were then converted to a list of coordinates using the MapQuest geocoding tool [3]. Finally, the cleansed address and coordinate data was saved as lists into a new file called data.js. In the future, it may be wise to store the data as a JavaScript object instead of lists because I may need data attributes beyond site names and coordinates, but this is suitable for my purposes.
 </div>
-  <div class="col-sm-6"><b>2. Plotting Locations on a Map</b> <br>
-      <ul>A map was created using Leaflet, an open-source JavaScript library for interactive maps [4]. </ul>
-       <ul> Downloaded a movie camera icon PNG. Created red and green versions. Green indicates a location is vacant. Red indicates reserved. </ul>
-       <ul> A for loop iterates through the coordinates and site names. A new map marker is created at each coordinate and the corresponding site name is bound each marker’s pop-up. </ul>
-       <ul> When a marker is clicked on, the pop-up becomes visible. </ul>
-       <ul> </ul>
-       <ul> </ul>
+  <div class="col-sm-5"><b>2. Plotting Locations on a Map</b> <br>
+      <li>A map was created using Leaflet, an open-source JavaScript library for interactive maps [4]. </li>
+       <li> Downloaded a movie camera icon PNG. Created red and green versions. Green indicates a location is vacant. Red indicates reserved. </li>
+       <li> A for loop iterates through the coordinates and site names. A new map marker is created at each coordinate and the corresponding site name is bound each marker’s pop-up. </li>
+       <li> When a marker is clicked on, the pop-up becomes visible. </li>
+  <br>  <br>
+    <b>3. Site Reservation Functionality </b> <br>
+     <li> Created a green reservation button for each pop-up. </li>
+     <li>When the reservation button is clicked, a button action listener is triggered which changes the location’s icon from green to red.</li>
+     <li>Added a calendar widget in each pop up so that the user can select the start and end dates of their reservation. </li>
 
-
-    </b>
+     <br> <br>
+     <b>4. Payment </b>  
+   <li>A paypal button is prompted after a location is reserved.</li>
+   <li>In a final product, the cost would be calculated based on the location and reservation duration. </li>
 </div>
 </div>
 <div class="row">
-  <div class="col-sm-6">The only necessary elements that I need from this dataset are the site names and their corresponding latitude and longitude coordinates so that they can be plotted on a map. Unfortunately, this dataset doesn’t include latitude and longitude coordinates; however, it does have addresses which can be converted to coordinates later on. In data_conversion.js, I extracted the site names and addresses of each location by creating a for loop which iterates through the location attributes and saves the site names to a list called sites and saves the addresses to list called addresses. The addresses were then converted to a list of coordinates using the MapQuest geocoding tool [3]. Finally, the cleansed address and coordinate data was saved as lists into a new file called data.js. In the future, it may be wise to store the data as a JavaScript object instead of lists because I may need data attributes beyond site names and coordinates, but this is suitable for my purposes.<br>
+  <div class="col-sm-6"><br>
   
   Processed data:
   <br>
@@ -131,14 +138,27 @@ attributes": {
 
 
 </div>
-  <div class="col-sm-6">COLUNM2</div>
+  <div class="col-sm-6">
+
+
+  </div>
 </div>
 <div class="row">
-  <div class="col-sm-6">COLUNM 1</div>
-  <div class="col-sm-6">COLUNM2</div>
+  <div class="col-sm-6">
+</div>
+  <div class="col-sm-6">
+</div>
 </div>
 <div class="row">
-  <div class="col-sm-6">COLUNM 1</div>
+  <div class="col-sm-6"><br><b>Future Work</b>
+    <li>Include all locations from the nm film office site, not just locations in ABQ. Currently, 406 locations are being plotted.</li>
+    <li>Use node to retrieve and display the data from CABQ live so that new locations that are added will be updated.
+</li>
+    <li>Add contact info for each site owner, in case a potential client has questions.
+Implement blockchain technology to make the reservation system decentralized.
+</li>
+    <li>A reservation system like the one developed in this project could be applied to other types of businesses, not just film, such as restaurant reservation.
+</li></div>
   <div class="col-sm-6">COLUNM2</div>
 </div>
 <div class="row">

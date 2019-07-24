@@ -1,12 +1,14 @@
 body{
-  margin: 0;
+  
 }
+
 .container-fluid{
 
   padding-right: 15px;
   padding-left: 15px;
   margin-right: 20px;
   margin-left: 20px;
+  margin: 20px;
 }
 #map{
 			/*position: static;
