@@ -35,6 +35,7 @@ for (i = 0; i <coordinates.length; i++){
     .openPopup());
 
 }
+console.log(coordinates.length);
 
 function reserve(e) {
     /*

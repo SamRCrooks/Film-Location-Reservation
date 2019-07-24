@@ -16,13 +16,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<div class="container">
+<div class="container-fluid">
 
 <div class="row">
   <div class="col-sm-12"><div class="topnav">
-  <a class="active" href="#home">ABQ FILM SITE RESERVATION ™</a>
+  <a class="active" href="#home">ABQ FILM SITE RESERVATION™</a>
   <a class="floatRight" href="#contact">CONTACT</a>
-  <a class="floatRight" href="#home">CREATION OF APP</a>
+  <a class="floatRight" href="#home">DEVELOPMENT PROCESS</a>
   <a class="floatRight" href="#reserve">RESERVE</a>
 </div></div>
 </div>
@@ -38,7 +38,7 @@
 </div>
 
 <div class="row">
-  <div class="col-sm-8"><iframe src="map.html" width="100%" height="500px" align="left" allowfullscreen></iframe></div>
+  <div class="col-sm-8"><iframe src="map.html" width="100%" height="700px" align="left" allowfullscreen></iframe></div>
   <div class="col-sm-4" width= "100%">
     <div id="instructions">
       <img src="icons/camera_icon_black.png" alt="camera" height="120px">
@@ -59,13 +59,96 @@
 
 <br>
 <div class="row">
-  <div class="col-sm-12"><h3> Development Process - Created by Sam Crooks</h3></div>
+  <div class="col-sm-12"><h3> Development Process - Created by Sam Crooks </h3></div>
+</div>
+<div class="row">
+  <div class="col-sm-6"> <b>Motivation: </b>
+    With news last year of Netflix buying Albuquerque studios and more recently NBC Universal announcing to build its own new studio complex this year, there is no question that the film industry is booming in New Mexico. Film shoots often require numerous locations, and the New Mexico film office’s website contains a database of over 8,000 available locations for production companies and independent filmmakers to reserve. However, the current system is inefficient because those who want to reserve locations must contact the owner of the location of interest directly. Furthermore, there is no way to quickly determine whether or not a site has already been reserved by someone else at a specified time. To address these problems, I developed an interactive map-based reservation web app for film sites in Albuquerque. Below details the process in developing the app. 
+
+</div>
+  <div class="col-sm-6"> <b>Tools Used:</b> <br>
+  <img src="tools_logos/javascript.png" alt="tool" height="100">
+  <img src="tools_logos/html.png" alt="tool" height="100">
+  <img src="tools_logos/css.png" alt="tool" height="100">
+  <img src="tools_logos/mapquest.png" alt="tool" height="50">
+  <img src="tools_logos/leaflet.png" alt="tool" height="200">
+  <img src="tools_logos/git.jpg" alt="tool" height="100">
+  <img src="tools_logos/bootstrap.png" alt="tool" height="100">
+</div>
+</div>
+<div class="row">
+  <div class="col-sm-6"><b>1. Data Extraction and Processing </b> <br>
+
+Location data from Albuquerque’s open data website was used [2]. It contains a dataset of movie locations for 1,000 productions shot (406 unique locations) in non-residential locations within the city of Albuquerque that required a film permit. The data is stored as a JSON file (JavaScript Object Notation).
+Example of location attributes within the JSON file:
+<br>
+<code>
+
+“attributes": {
+    "OBJECTID": 4599,
+    "Title": "Breaking Bad",
+    "Type": "TV Series Season 2",
+    "IMDbLink": "http://www.imdb.com/title/tt0903747/episodes?season=2&ref_=tt_eps_sn_2",
+    "Address": "5650 University Boulevard SE",
+    "Site": "Albuquerque Studios",
+    "ShootDate": 1216166400000,
+    "OriginalDetails": "Albuquerque Studios"
+   }, 
+<br>
+attributes": {
+    "OBJECTID": 4893,
+    "Title": "Easy Money",
+    "Type": "TV Series",
+    "IMDbLink": "http://www.imdb.com/title/tt1252367/",
+    "Address": "9201 Pan American Freeway NE",
+    "Site": "I25 Studios formerly Philips Semiconductor Plant",
+    "ShootDate": 1222992000000,
+    "OriginalDetails": "Philips Building - 9201 Pan American Fwy."
+   }
+</code>
+</div>
+  <div class="col-sm-6"><b>2. Plotting Locations on a Map</b> <br>
+      <ul>A map was created using Leaflet, an open-source JavaScript library for interactive maps [4]. </ul>
+       <ul> Downloaded a movie camera icon PNG. Created red and green versions. Green indicates a location is vacant. Red indicates reserved. </ul>
+       <ul> A for loop iterates through the coordinates and site names. A new map marker is created at each coordinate and the corresponding site name is bound each marker’s pop-up. </ul>
+       <ul> When a marker is clicked on, the pop-up becomes visible. </ul>
+       <ul> </ul>
+       <ul> </ul>
+
+
+    </b>
+</div>
+</div>
+<div class="row">
+  <div class="col-sm-6">The only necessary elements that I need from this dataset are the site names and their corresponding latitude and longitude coordinates so that they can be plotted on a map. Unfortunately, this dataset doesn’t include latitude and longitude coordinates; however, it does have addresses which can be converted to coordinates later on. In data_conversion.js, I extracted the site names and addresses of each location by creating a for loop which iterates through the location attributes and saves the site names to a list called sites and saves the addresses to list called addresses. The addresses were then converted to a list of coordinates using the MapQuest geocoding tool [3]. Finally, the cleansed address and coordinate data was saved as lists into a new file called data.js. In the future, it may be wise to store the data as a JavaScript object instead of lists because I may need data attributes beyond site names and coordinates, but this is suitable for my purposes.<br>
+  
+  Processed data:
+  <br>
+  <code>
+    var sites = ['Naral Office','El Madrid Bar ', I-25 Studios' ... ]; <br>
+    var coordinates = [[35.0860946, -106.650725194778], [35.1009602, -106.6460408], [35.0841157, -106.6480531] ... ];
+  </code>
+
+
+</div>
+  <div class="col-sm-6">COLUNM2</div>
 </div>
 <div class="row">
   <div class="col-sm-6">COLUNM 1</div>
   <div class="col-sm-6">COLUNM2</div>
 </div>
-
+<div class="row">
+  <div class="col-sm-6">COLUNM 1</div>
+  <div class="col-sm-6">COLUNM2</div>
+</div>
+<div class="row">
+  <div class="col-sm-6">COLUNM 1</div>
+  <div class="col-sm-6">COLUNM2</div>
+</div>
+<div class="row">
+  <div class="col-sm-6">COLUNM 1</div>
+  <div class="col-sm-6">COLUNM2</div>
+</div>
 
 
 
