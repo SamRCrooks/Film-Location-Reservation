@@ -21,7 +21,7 @@
 <div class="row">
   <div class="col-sm-12"><div class="topnav">
   <a class="active" href="#home">ABQ FILM SITE RESERVATION™</a>
-  <a class="floatRight" href="#contact">CONTACT</a>
+  <a class="floatRight" href="mailto:samrcrooks@gmail.com">CONTACT</a>
   <a class="floatRight" href="#home">DEVELOPMENT PROCESS</a>
   <a class="floatRight" href="#reserve">RESERVE</a>
 </div></div>
@@ -67,6 +67,7 @@
 
 </div>
   <div class="col-sm-6"> <b>Tools Used:</b> <br>
+
   <img src="tools_logos/javascript.png" alt="tool" height="70">
   <img src="tools_logos/html.png" alt="tool" height="70">
   <img src="tools_logos/css.png" alt="tool" height="70">
@@ -106,8 +107,16 @@ attributes": {
     "ShootDate": 1222992000000,
     "OriginalDetails": "Philips Building - 9201 Pan American Fwy."
    }
- </code>
+ </code> <br>
 The only necessary elements that I need from this dataset are the site names and their corresponding latitude and longitude coordinates so that they can be plotted on a map. Unfortunately, this dataset doesn’t include latitude and longitude coordinates; however, it does have addresses which can be converted to coordinates later on. In data_conversion.js, I extracted the site names and addresses of each location by creating a for loop which iterates through the location attributes and saves the site names to a list called sites and saves the addresses to list called addresses. The addresses were then converted to a list of coordinates using the MapQuest geocoding tool [3]. Finally, the cleansed address and coordinate data was saved as lists into a new file called data.js. In the future, it may be wise to store the data as a JavaScript object instead of lists because I may need data attributes beyond site names and coordinates, but this is suitable for my purposes.
+<br>
+Processed data:
+  <br>
+  <code>
+    var sites = ['Naral Office','El Madrid Bar ', I-25 Studios' ... ]; <br>
+    var coordinates = [[35.0860946, -106.650725194778], [35.1009602, -106.6460408], [35.0841157, -106.6480531] ... ];
+  </code>
+
 </div>
   <div class="col-sm-5"><b>2. Plotting Locations on a Map</b> <br>
       <li>A map was created using Leaflet, an open-source JavaScript library for interactive maps [4]. </li>
@@ -129,13 +138,7 @@ The only necessary elements that I need from this dataset are the site names and
 <div class="row">
   <div class="col-sm-6"><br>
   
-  Processed data:
-  <br>
-  <code>
-    var sites = ['Naral Office','El Madrid Bar ', I-25 Studios' ... ]; <br>
-    var coordinates = [[35.0860946, -106.650725194778], [35.1009602, -106.6460408], [35.0841157, -106.6480531] ... ];
-  </code>
-
+  
 
 </div>
   <div class="col-sm-6">
@@ -169,14 +172,15 @@ Implement blockchain technology to make the reservation system decentralized.
   <div class="col-sm-6">COLUNM 1</div>
   <div class="col-sm-6">COLUNM2</div>
 </div>
-
-
-
-
-
-  
-
-
 </div>
+
+<footer>
+
+  <p>© Created by Captain Sam 🚢  ©</p>
+  <p>With mentoring from Emperor David 👑 </p>
+  <p>Contact me: 
+    <a href="mailto:samrcrooks@gmail.com">
+  samrcrooks@gmail.com</a>.</p>
+</footer>
 </body>
 </html>

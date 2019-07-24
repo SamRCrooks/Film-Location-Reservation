@@ -7,16 +7,16 @@ var map = L.map('map').setView([35.084385, -106.650421], 11.1);
 var greenIcon = L.icon({
     iconUrl: 'icons/camera_green.png',
 
-    iconSize:     [80, 80], // size of the icon
-    iconAnchor:   [40, 94], // point of the icon which will correspond to marker's location
+    iconSize:     [40, 40], // size of the icon
+    iconAnchor:   [25, 75], // point of the icon which will correspond to marker's location
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
 
 var redIcon = L.icon({
     iconUrl: 'icons/camera_red.png',
 
-    iconSize:     [80, 80], // size of the icon
-    iconAnchor:   [40, 94], // point of the icon which will correspond to marker's location
+    iconSize:     [40, 40], // size of the icon
+    iconAnchor:   [25, 75], // point of the icon which will correspond to marker's location
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
 
