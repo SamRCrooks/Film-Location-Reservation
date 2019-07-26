@@ -25,11 +25,6 @@ var markers = [];
 
 for (i = 0; i <coordinates.length; i++){
 	//console.log(coordinates[i][0], coordinates[i][1]);
-     /*
-    note the addition of the onclick attribute to this button!
-    The keyword 'this' lets you pass on a reference to the current
-    HTML element
-    */
 	markers.push(L.marker([coordinates[i][0], coordinates[i][1]], {icon: greenIcon}).addTo(map)
     .bindPopup("<h2> Site: "+ sites[i]+"</h2>"+ "Start: <input type='date' id='start' name='trip-start' value='2019-07-26'>"+ "<br> End: <input type='date' id='start' name='trip-start' value='2019-07-27'> <br> <br>"+ `<button class='button' id= "${i}" onclick=reserve(this)> RESERVE </button>`)
     .openPopup());
